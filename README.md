@@ -1,6 +1,6 @@
 # docker-wordpress-ubuntu16-nginx-php7
 
-A Dockerfile that installs the latest wordpress on Ubuntu 16.04 with nginx 1.10.0, php-fpm7.0, php7.0 APC User Cache and  openssh. Based heavily on [this](https://hub.docker.com/r/thomasvan/docker-wordpress-ubuntu16-nginx-php7/).
+A Dockerfile that installs the latest wordpress on Ubuntu 16.04 with nginx 1.10.0, php-fpm7.0, php7.0 APC User Cache and openssh. Based heavily on [this](https://hub.docker.com/r/thomasvan/docker-wordpress-ubuntu16-nginx-php7/).
 
 ###Todo:
 
