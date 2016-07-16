@@ -33,7 +33,6 @@ if [ ! -f /usr/share/nginx/www/wp-config.php ]; then
   # Download nginx helper plugin
   curl -O `curl -i -s https://wordpress.org/plugins/nginx-helper/ | egrep -o "https://downloads.wordpress.org/plugin/[^']+"`
   unzip -o nginx-helper.*.zip -d /usr/share/nginx/www/wp-content/plugins
-  chown -R www-data:www-data /usr/share/nginx/www/wp-content/plugins/nginx-helper
 
   # Activate nginx plugin and set up pretty permalink structure once logged in
   cat << ENDL >> /usr/share/nginx/www/wp-config.php
@@ -50,7 +49,7 @@ if ( count( \$plugins ) === 0 ) {
 }
 ENDL
 
-  chown wordpress:www-data /usr/share/nginx/www/wp-config.php
+  chown -R wordpress: /usr/share/nginx/www/
 
   mysqladmin -u root password $MYSQL_PASSWORD
   mysql -uroot -p$MYSQL_PASSWORD -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES;"

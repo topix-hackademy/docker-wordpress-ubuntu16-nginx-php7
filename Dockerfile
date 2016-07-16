@@ -61,13 +61,13 @@ RUN mv /usr/share/nginx/wordpress /usr/share/nginx/www \
     && chown -R wordpress:www-data /usr/share/nginx/www \
     && chmod -R 775 /usr/share/nginx/www
 
-
 # Wordpress Initialization and Startup Script
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
 #NETWORK PORTS
 # private expose
+EXPOSE 9011
 EXPOSE 3306
 EXPOSE 80
 EXPOSE 22
