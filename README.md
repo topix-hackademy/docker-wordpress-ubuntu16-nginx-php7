@@ -3,27 +3,20 @@
 A Dockerfile that installs the latest wordpress on Ubuntu 16.04 with nginx 1.10.0, php-fpm7.0, php7.0 APC User Cache and openssh. You can also handle the services using supervisord.
 Based on [this](https://hub.docker.com/r/thomasvan/docker-wordpress-ubuntu16-nginx-php7/).
 
-###Todo:
-
-1. If anyone has suggestions please leave a comment on [this GitHub issue](https://github.com/thomasvan/docker-wordpress-ubuntu16-nginx-php7/issues/2).
-2. Implement [Docker Compose](https://docs.docker.com/compose/) for a quicker setup.
-3. Clean up README.
-4. Requests? Just make a comment on [this GitHub issue](https://github.com/thomasvan/docker-wordpress-ubuntu16-nginx-php7/issues/1) if there's anything you'd like added or changed.
-
 ## Installation
 
-The easiest way get up and running with this docker container is to pull the latest stable version from the [Docker Hub Registry](https://hub.docker.com/r/thomasvan/docker-wordpress-ubuntu16-nginx-php7/):
+The easiest way get up and running with this docker container is to pull the latest stable version from the [Docker Hub Registry](https://hub.docker.com/r/alexcomu/topix-wordpress/):
 
 ```bash
-$ docker pull thomasvan/docker-wordpress-ubuntu16-nginx-php7:latest
+$ docker pull alexcomu/topix-wordpress/:latest
 ```
 
 If you'd like to build the image yourself:
 
 ```bash
-$ git clone https://github.com/thomasvan/docker-wordpress-ubuntu16-nginx-php7.git
-$ cd docker-wordpress-nginx-ssh
-$ sudo docker build -t="thomasvan/docker-wordpress-ubuntu16-nginx-php7" .
+$ git clone https://github.com/alexcomu/topix-wordpress.git
+$ cd topix-wordpress
+$ sudo docker build -t="alexcomu/topix-wordpress/" .
 ```
 
 ## Usage
@@ -31,13 +24,13 @@ $ sudo docker build -t="thomasvan/docker-wordpress-ubuntu16-nginx-php7" .
 The -p 80:80 maps the internal docker port 80 to the outside port 80 of the host machine. The other -p sets up sshd on port 2222.
 The -p 9011:9011 is using for supervisord, listing out all services status. 
 ```bash
-$ sudo docker run -p 8080:80 -p 2222:22 -p 9011:9011 --name docker-name -d thomasvan/docker-wordpress-ubuntu16-nginx-php7:latest
+$ sudo docker run -p 2222:22 -p 8000:80 --name WORDPRESS-1 -d alexcomu/topix-wordpress:latest
 ```
 
 Start your newly created container, named *docker-name*.
 
 ```
-$ sudo docker start docker-name
+$ sudo docker start WORDPRESS-1
 ```
 
 After starting the container docker-wordpress-nginx-ssh checks to see if it has started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.

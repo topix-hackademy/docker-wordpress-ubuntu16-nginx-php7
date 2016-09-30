@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Thomas Van<thomas@forixwebdesign.com>
+MAINTAINER Alex Comunian <alex.comunian@gmail.com>
 
 # Keep upstart from complaining
 RUN dpkg-divert --local --rename --add /sbin/initctl
@@ -14,7 +14,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Basic Requirements
-RUN apt-get -y install pwgen python-setuptools curl git nano sudo unzip openssh-server openssl
+RUN apt-get -y install pwgen python-setuptools curl git nano sudo unzip openssh-server openssl vim htop
 RUN apt-get -y install mysql-server mysql-client nginx php-fpm php-mysql
 
 # Wordpress Requirements
