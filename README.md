@@ -24,7 +24,7 @@ $ sudo docker build -t="alexcomu/topix-wordpress/" .
 The -p 80:80 maps the internal docker port 80 to the outside port 80 of the host machine. The other -p sets up sshd on port 2222.
 The -p 9011:9011 is using for supervisord, listing out all services status. 
 ```bash
-$ sudo docker run -p 2222:22 -p 8000:80 --name WORDPRESS-1 -d alexcomu/topix-wordpress:latest
+$ sudo docker run -p 7000:22 -p 8000:80 --name WORDPRESS-1 -h WORDPRESS-1 -d alexcomu/topix-wordpress:latest
 ```
 
 Start your newly created container, named *docker-name*.
