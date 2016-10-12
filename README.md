@@ -5,26 +5,26 @@ Based on [this](https://hub.docker.com/r/thomasvan/docker-wordpress-ubuntu16-ngi
 
 ## Installation
 
-The easiest way get up and running with this docker container is to pull the latest stable version from the [Docker Hub Registry](https://hub.docker.com/r/alexcomu/topix-wordpress/):
+The easiest way get up and running with this docker container is to pull the latest stable version from the [Docker Hub Registry](https://hub.docker.com/r/alexcomu/docker-wordpress-ubuntu16-nginx-php7/):
 
 ```bash
-$ docker pull alexcomu/topix-wordpress/:latest
+$ docker pull alexcomu/docker-wordpress-ubuntu16-nginx-php7/:latest
 ```
 
 If you'd like to build the image yourself:
 
 ```bash
-$ git clone https://github.com/alexcomu/topix-wordpress.git
-$ cd topix-wordpress
-$ sudo docker build -t="alexcomu/topix-wordpress/" .
+$ git clone https://github.com/topix-hackademy/docker-wordpress-ubuntu16-nginx-php7.git
+$ cd docker-wordpress-ubuntu16-nginx-php7
+$ sudo docker build -t="alexcomu/docker-wordpress-ubuntu16-nginx-php7/" .
 ```
 
 ## Usage
 
 The -p 80:80 maps the internal docker port 80 to the outside port 80 of the host machine. The other -p sets up sshd on port 2222.
-The -p 9011:9011 is using for supervisord, listing out all services status. 
+The -p 9011:9011 is using for supervisord, listing out all services status.
 ```bash
-$ sudo docker run -p 7000:22 -p 8000:80 --name WORDPRESS-1 -h WORDPRESS-1 -d alexcomu/topix-wordpress:latest
+$ sudo docker run -p 7000:22 -p 8000:80 --name WORDPRESS-1 -h WORDPRESS-1 -d alexcomu/docker-wordpress-ubuntu16-nginx-php7:latest
 ```
 
 Start your newly created container, named *docker-name*.
